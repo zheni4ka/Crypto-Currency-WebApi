@@ -8,10 +8,10 @@ namespace BusinessLogic.Entities
 {
     public class ChangeHistory
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
         public decimal PriceChange { get; set; }
         public DateTime ChangeTime { get; set; } = DateTime.Now;
         public int CurrencyId { get; set; }
-        public Currency Currency { get; set; }
+        public Currency? Currency { get; set; }
     }
 }

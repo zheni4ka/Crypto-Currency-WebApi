@@ -14,5 +14,6 @@ namespace BusinessLogic.Entities
         public int Value { get; set; } = 0;
         public string ImgUrl { get; set; }
         public IEnumerable<ChangeHistory> Changes { get; set; }
+        public IEnumerable<Transaction> Transactions { get; set; }    
     }
 }
