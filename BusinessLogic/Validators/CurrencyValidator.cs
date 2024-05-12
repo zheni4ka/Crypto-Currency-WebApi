@@ -12,8 +12,7 @@ namespace BusinessLogic.Validators
     {
         public CurrencyValidator() 
         {
-            RuleFor(x => x.Name).NotEmpty().MinimumLength(1);
-                
+            RuleFor(x => x.Name).NotEmpty().MinimumLength(3);
             RuleFor(x => x.PriceForOneUnit).NotEmpty().GreaterThan(1);
         }
     }

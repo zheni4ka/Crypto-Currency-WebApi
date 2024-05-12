@@ -10,7 +10,7 @@ namespace BusinessLogic.Entities
     {
         public int Id { get; set; }
         public int UserId { get; set; }
-        public Profile? Profile { get; set; }
+        public User? Profile { get; set; }
         public int Sum { get; set; }
         public int CurrencyId { get; set; }
         public Currency? Currency { get; set; }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Data.Configurations
 {
-    public class ChangeHistory : IEntityTypeConfiguration<ChangeHistory>
+    public class ChangeHistoryConfig : IEntityTypeConfiguration<ChangeHistoryConfig>
     {
-        public void Configure(EntityTypeBuilder<ChangeHistory> builder)
+        public void Configure(EntityTypeBuilder<ChangeHistoryConfig> builder)
         {
             builder.HasKey();
         }
