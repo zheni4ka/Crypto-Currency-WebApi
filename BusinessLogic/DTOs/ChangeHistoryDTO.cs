@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.DTOs
 {
-    public class ChangeHistoryDTO
+    public class ChangeHistoryDto
     {
         public int Id { get; set; }
         public decimal PriceChange { get; set; }

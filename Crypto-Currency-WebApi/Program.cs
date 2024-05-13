@@ -1,4 +1,6 @@
 
+using DataAccess.Repositories;
+
 namespace Crypto_Currency_WebApi
 {
     public class Program
@@ -17,9 +19,9 @@ namespace Crypto_Currency_WebApi
             //builder.Services.AddJWT(builder.Configuration);
             //builder.Services.AddRequirements();
 
-            //builder.Services.AddDbContext(connStr);
-            //builder.Services.AddIdentity();
-            //builder.Services.AddRepositories();
+            builder.Services.AddDbContext(connStr);
+            builder.Services.AddIdentity();
+            builder.Services.AddRepositories();
 
             //builder.Services.AddAutoMapper();
             //builder.Services.AddFluentValidators();

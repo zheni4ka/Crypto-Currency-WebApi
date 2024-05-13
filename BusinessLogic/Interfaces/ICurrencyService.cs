@@ -9,11 +9,11 @@ namespace BusinessLogic.Interfaces
 {
     public interface ICurrencyService
     {
-        Task<IEnumerable<CurrencyDTO>> Get(IEnumerable<int> ids);
-        Task<IEnumerable<CurrencyDTO>> GetAll();
-        Task<CurrencyDTO?> Get(int id);
+        Task<IEnumerable<CurrencyDto>> Get(IEnumerable<int> ids);
+        IEnumerable<CurrencyDto> GetAll();
+        Task<CurrencyDto?> Get(int id);
         void Create(CreateCurrencyModel create);
-        void Edit(CurrencyDTO currencyDTO);
-        void Delete(int id);
+        void Edit(CurrencyDto currencyDTO);
+        Task Delete(int id);
     }
 }

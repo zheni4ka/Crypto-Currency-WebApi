@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.DTOs
 {
-    public class CurrencyDTO
+    public class CurrencyDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

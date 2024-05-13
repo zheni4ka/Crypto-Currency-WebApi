@@ -9,7 +9,7 @@ using FluentValidation;
 
 namespace BusinessLogic.Validators
 {
-    public class TransactionValidator : AbstractValidator<TransactionsDTO>
+    public class TransactionValidator : AbstractValidator<TransactionsDto>
     {
         public TransactionValidator() 
         {

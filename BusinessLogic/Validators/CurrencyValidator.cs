@@ -8,7 +8,7 @@ using FluentValidation;
 
 namespace BusinessLogic.Validators 
 {
-    public class CurrencyValidator : AbstractValidator<CurrencyDTO>
+    public class CurrencyValidator : AbstractValidator<CurrencyDto>
     {
         public CurrencyValidator() 
         {
