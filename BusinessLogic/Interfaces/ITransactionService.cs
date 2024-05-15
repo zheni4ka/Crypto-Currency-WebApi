@@ -9,10 +9,10 @@ namespace BusinessLogic.Interfaces
 {
     public interface ITransactionService
     {
-        Task<IEnumerable<TransactionsDto>> GetAll();
+        IEnumerable<TransactionsDto> GetAll();
         Task<IEnumerable<TransactionsDto>> Get(IEnumerable<int> id);
         Task<TransactionsDto?> Get(int id);
         void Create(CreateTransactionModel create);
-        void Delete(int id);
+        Task Delete(int id);
     }
 }

@@ -117,13 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CryptoNotFound" xml:space="preserve">
-    <value>Crypto is not found</value>
+  <data name="CurrencyNotFound" xml:space="preserve">
+    <value>Currency is not found</value>
+  </data>
+  <data name="HistoryNotFound" xml:space="preserve">
+    <value>HistoryNotFound</value>
   </data>
   <data name="IdMustBePositive" xml:space="preserve">
     <value>Id must be positive</value>
   </data>
   <data name="InvalidToken" xml:space="preserve">
     <value>Token is invalid</value>
+  </data>
+  <data name="TransactionNotFound" xml:space="preserve">
+    <value>TransactionNotFound</value>
   </data>
 </root>

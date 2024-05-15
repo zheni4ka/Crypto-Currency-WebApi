@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,6 @@ namespace BusinessLogic.DTOs
         public string Name { get; set; }
         public decimal PriceForOneUnit { get; set; } //USD default
         public int Value { get; set; }
-        public string ImgUrl { get; set; }
+        public IFormFile ImageUrl { get; set; }
     }
 }

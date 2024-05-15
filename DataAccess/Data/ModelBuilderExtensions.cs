@@ -14,7 +14,7 @@ namespace DataAccess.Data
         {
             builder.Entity<Currency>().HasData(new[]
             {
-                new Currency() {Id = 1, Name="Bitcoin", PriceForOneUnit = 60000, ImgUrl = "https://www.criptomonedas.co/wp-content/uploads/2021/01/bitcoin-btc-logo.png"}
+                new Currency() {Id = 1, Name="Bitcoin", PriceForOneUnit = 60000, ImageUrl = "https://www.criptomonedas.co/wp-content/uploads/2021/01/bitcoin-btc-logo.png"}
             });
         }
     }

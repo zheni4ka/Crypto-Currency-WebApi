@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Specifications
 {
-    public class TransactionSpecs
+    public static class TransactionSpecs
     {
         internal class ById : Specification<Transaction>
         {
-            ById(int Id) 
+            public ById(int Id) 
             {
                 Query.Where(x => x.Id == Id);
             }
         }
         internal class ByIds : Specification<Transaction>
         {
-            ByIds(IEnumerable<int> ids)
+            public ByIds(IEnumerable<int> ids)
             {
                 Query.Where(x=> ids.Contains(x.Id));
             }

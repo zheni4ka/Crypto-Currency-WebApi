@@ -23,7 +23,7 @@ namespace BusinessLogic.Services
             throw new NotImplementedException();
         }
 
-        public async Task<string> SaveFilmImage(IFormFile file)
+        public async Task<string> SaveCurrencyImage(IFormFile file)
         {
             string root = environment.WebRootPath;
             string name = Guid.NewGuid().ToString();

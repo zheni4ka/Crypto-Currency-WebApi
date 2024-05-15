@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Specifications
 {
-    public class ChangeHistorySpecs
+    public static class ChangeHistorySpecs
     {
         internal class ById: Specification<ChangeHistory>
         {
@@ -16,6 +16,14 @@ namespace BusinessLogic.Specifications
             {
                 Query.Where(x => x.Id == Id);
             }
+        }
+        internal class ByIds: Specification<ChangeHistory>
+        {
+            public ByIds(IEnumerable<int> ids)
+            { 
+                Query.Where(x=>ids.Contains(x.Id));
+            }
+
         }
         //internal class ByDate: Specification<ChangeHistory>
         //{

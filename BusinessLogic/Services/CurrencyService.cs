@@ -34,7 +34,7 @@ namespace BusinessLogic.Services
 
             var film = await currencyR.GetItemBySpec(new CurrencySpecs.ById(id));
 
-            if (film == null) throw new HttpException(Errors.CryptoNotFound, HttpStatusCode.NotFound);
+            if (film == null) throw new HttpException(Errors.CurrencyNotFound, HttpStatusCode.NotFound);
 
             currencyR.Delete(film);
             currencyR.Save();
@@ -55,10 +55,10 @@ namespace BusinessLogic.Services
         {
             if (id < 0) throw new HttpException(Errors.IdMustBePositive, HttpStatusCode.BadRequest);
 
-            var item = await currencyR.GetItemBySpec(new CurrencySpecs.ById(id));
-            if (item == null) throw new HttpException(Errors.ProductNotFound, HttpStatusCode.NotFound);
+            var currency = await currencyR.GetItemBySpec(new CurrencySpecs.ById(id));
+            if (currency == null) throw new HttpException(Errors.CurrencyNotFound, HttpStatusCode.NotFound);
 
-            var dto = mapper.Map<CurrencyDto>(item);
+            var dto = mapper.Map<CurrencyDto>(currency);
 
             return dto;
         }

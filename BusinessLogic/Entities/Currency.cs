@@ -12,7 +12,7 @@ namespace BusinessLogic.Entities
         public string Name { get; set; }
         public decimal PriceForOneUnit { get; set; } //USD default
         public int Value { get; set; } = 0;
-        public string ImgUrl { get; set; }
+        public string ImageUrl { get; set; }
         public IEnumerable<ChangeHistory> Changes { get; set; }
         public IEnumerable<Transaction> Transactions { get; set; }    
     }

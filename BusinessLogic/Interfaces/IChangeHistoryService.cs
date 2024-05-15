@@ -9,10 +9,10 @@ namespace BusinessLogic.Interfaces
 {
     public interface IChangeHistoryService
     {
-        Task<IEnumerable<ChangeHistoryDto>> GetAll();
+        IEnumerable<ChangeHistoryDto> GetAll();
         Task<IEnumerable<ChangeHistoryDto>> Get(IEnumerable<int> ids);
         Task<ChangeHistoryDto?> Get(int id);
         void Create(CreateChangeHistoryModel model);
-        void Remove(int id);
+        Task Remove(int id);
     } 
 }

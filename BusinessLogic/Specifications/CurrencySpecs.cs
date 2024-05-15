@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BusinessLogic.Specifications
 {
-    public class CurrencySpecs
+    public static class CurrencySpecs
     {
         internal class ById : Specification<Currency>
         {

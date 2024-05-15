@@ -31,9 +31,7 @@ namespace BusinessLogic {
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal Errors() {
         }
-
-        public static string ProductNotFound { get; internal set; }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -63,11 +61,20 @@ namespace BusinessLogic {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Crypto is not found.
+        ///   Looks up a localized string similar to Currency is not found.
         /// </summary>
-        internal static string CryptoNotFound {
+        internal static string CurrencyNotFound {
             get {
-                return ResourceManager.GetString("CryptoNotFound", resourceCulture);
+                return ResourceManager.GetString("CurrencyNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to HistoryNotFound.
+        /// </summary>
+        internal static string HistoryNotFound {
+            get {
+                return ResourceManager.GetString("HistoryNotFound", resourceCulture);
             }
         }
         
@@ -86,6 +93,15 @@ namespace BusinessLogic {
         internal static string InvalidToken {
             get {
                 return ResourceManager.GetString("InvalidToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TransactionNotFound.
+        /// </summary>
+        internal static string TransactionNotFound {
+            get {
+                return ResourceManager.GetString("TransactionNotFound", resourceCulture);
             }
         }
     }
