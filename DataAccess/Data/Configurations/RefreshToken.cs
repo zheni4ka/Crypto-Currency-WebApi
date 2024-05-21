@@ -14,6 +14,7 @@ namespace DataAccess.Data.Configurations
         public void Configure(EntityTypeBuilder<RefreshToken> builder)
         {
             builder.HasKey(x => x.Id);
+            builder.ToTable("RefreshTokens");
             builder.HasOne(x => x.User).WithMany(x => x.RefreshTokens).HasForeignKey(x => x.UserId);
         }
     }

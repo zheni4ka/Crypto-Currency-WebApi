@@ -1,4 +1,6 @@
 
+using BusinessLogic;
+using Crypto_Currency_WebApi.Helpers;
 using DataAccess.Repositories;
 
 namespace Crypto_Currency_WebApi
@@ -11,30 +13,28 @@ namespace Crypto_Currency_WebApi
 
             var connStr = builder.Configuration.GetConnectionString("LocalDb")!;
 
-
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            //builder.Services.AddJWT(builder.Configuration);
-            //builder.Services.AddRequirements();
+            builder.Services.AddJWT(builder.Configuration);
 
             builder.Services.AddDbContext(connStr);
             builder.Services.AddIdentity();
             builder.Services.AddRepositories();
 
-            //builder.Services.AddAutoMapper();
-            //builder.Services.AddFluentValidators();
+            builder.Services.AddAutoMapper();
+            builder.Services.AddFluentValidators();
 
-            //builder.Services.AddCustomServices();
+            builder.Services.AddCustomServices();
 
             var app = builder.Build();
 
-            //using (var scope = app.Services.CreateScope())
-            //{
-            //    scope.ServiceProvider.SeedRoles().Wait();
-            //    scope.ServiceProvider.SeedAdmin().Wait();
-            //}
+            using (var scope = app.Services.CreateScope())
+            {
+                scope.ServiceProvider.SeedRoles().Wait();
+                scope.ServiceProvider.SeedAdmin().Wait();
+            }
 
             if (app.Environment.IsDevelopment())
             {
@@ -45,7 +45,7 @@ namespace Crypto_Currency_WebApi
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            //app.UseMiddleware<GlobalErrorHandler>();
+            app.UseMiddleware<GlobalErrorHandler>();
 
             app.UseCors(options =>
             {

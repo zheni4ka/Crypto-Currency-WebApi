@@ -10,7 +10,7 @@ namespace BusinessLogic.Helpers
     {
         public string Issuer { get; set; }
         public string Key { get; set; }
-        public int AcceeTokenLifetimeInMinutes { get; set; }
+        public int AccessTokenLifetimeInMinutes { get; set; }
         public int RefreshTokenLifetimeInDays { get; set; }
     }
 }

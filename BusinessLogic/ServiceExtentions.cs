@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BusinessLogic.Interfaces;
 using BusinessLogic.Profiles;
+using BusinessLogic.Services;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -25,6 +26,15 @@ namespace BusinessLogic
         public static void AddFluentValidators(this IServiceCollection services)    
         {   
             services.AddValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+        }
+        public static void AddCustomServices(this IServiceCollection services)
+        {
+            services.AddScoped<IAccountsService, AccountsService>();
+            services.AddScoped<ICurrencyService, CurrencyService>();
+            services.AddScoped<IChangeHistoryService, ChangeHistoryService>();
+            services.AddScoped<IFileService, FileService>();
+            services.AddScoped<IJwtService, JwtService>();
+            services.AddScoped<ITransactionService, TransactionService>();
         }
     }
 }
