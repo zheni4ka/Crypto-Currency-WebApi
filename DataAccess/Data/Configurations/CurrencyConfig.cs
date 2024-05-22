@@ -15,6 +15,8 @@ namespace DataAccess.Data.Configurations
         {
             builder.HasKey(x => x.Id);
             builder.HasMany(x => x.Changes).WithOne(x => x.Currency).HasForeignKey(x => x.CurrencyId);
+            builder.HasMany(x => x.Transactions).WithOne(x => x.Currency).HasForeignKey(x => x.CurrencyId);
+            //builder.ToTable("Currencies");
         }
     }
 }

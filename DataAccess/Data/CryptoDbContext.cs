@@ -16,8 +16,11 @@ namespace DataAccess.Data
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<ChangeHistory> ChangeHistory { get; set; }
-        public CryptoDbContext(DbContextOptions options) : base(options) { }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
+
         public CryptoDbContext() { }
+        public CryptoDbContext(DbContextOptions options) : base(options) { }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

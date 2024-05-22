@@ -9,8 +9,8 @@ namespace BusinessLogic.Entities
     public class Transaction
     {
         public int Id { get; set; }
-        public int UserId { get; set; }
-        public User? Profile { get; set; }
+        public string UserId { get; set; }
+        public User? User { get; set; }
         public int Sum { get; set; }
         public int CurrencyId { get; set; }
         public Currency? Currency { get; set; }

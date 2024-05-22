@@ -11,7 +11,6 @@ namespace BusinessLogic.DTOs
     {
         public string Name { get; set; }
         public decimal PriceForOneUnit { get; set; } //USD default
-        public int Value { get; set; }
         public IFormFile ImageUrl { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BusinessLogic.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Data.Configurations
 {
-    public class ChangeHistoryConfig : IEntityTypeConfiguration<ChangeHistoryConfig>
+    public class ChangeHistoryConfig : IEntityTypeConfiguration<ChangeHistory>
     {
-        public void Configure(EntityTypeBuilder<ChangeHistoryConfig> builder)
+        public void Configure(EntityTypeBuilder<ChangeHistory> builder)
         {
-            builder.HasKey();
+            builder.HasKey(x=>x.Id);
+            //builder.ToTable("ChangeHistories");
         }
     }
 }

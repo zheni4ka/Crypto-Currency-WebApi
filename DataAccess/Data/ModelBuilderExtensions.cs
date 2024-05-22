@@ -10,11 +10,13 @@ namespace DataAccess.Data
 {
     public static class ModelBuilderExtensions
     {
+        const string folder = "images";
         public static void SeedData(this ModelBuilder builder)
         {
             builder.Entity<Currency>().HasData(new[]
             {
-                new Currency() {Id = 1, Name="Bitcoin", PriceForOneUnit = 60000, ImageUrl = "https://www.criptomonedas.co/wp-content/uploads/2021/01/bitcoin-btc-logo.png"}
+                new Currency() {Id = 1, Name="MaxiCoin", PriceForOneUnit = 10, ImageUrl = "images/maxicoin.jpg"},
+                new Currency() {Id = 2, Name="TymoCoin", PriceForOneUnit = 2000, ImageUrl = "images/Tymocoin.jpg"}
             });
         }
     }
