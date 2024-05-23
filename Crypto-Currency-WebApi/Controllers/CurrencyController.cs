@@ -12,10 +12,10 @@ namespace Crypto_Currency_WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Currency : ControllerBase
+    public class CurrencyController : ControllerBase
     {
         private readonly ICurrencyService currencyService;
-        public Currency(ICurrencyService currencyService)
+        public CurrencyController(ICurrencyService currencyService)
         {
             this.currencyService = currencyService;
         }

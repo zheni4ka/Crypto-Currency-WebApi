@@ -43,7 +43,7 @@ namespace BusinessLogic.Services
             return mapper.Map<IEnumerable<ChangeHistoryDto>>(changehistoryR.GetAll());
         }
 
-        public async Task Remove(int id)
+        public async Task Delete(int id)
         {
             if (id < 0) throw new HttpException(Errors.IdMustBePositive, HttpStatusCode.BadRequest);
 

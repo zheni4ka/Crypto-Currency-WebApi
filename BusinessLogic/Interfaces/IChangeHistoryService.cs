@@ -13,6 +13,6 @@ namespace BusinessLogic.Interfaces
         Task<IEnumerable<ChangeHistoryDto>> Get(IEnumerable<int> ids);
         Task<ChangeHistoryDto?> Get(int id);
         void Create(CreateChangeHistoryModel model);
-        Task Remove(int id);
+        Task Delete(int id);
     } 
 }
