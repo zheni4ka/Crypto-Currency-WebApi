@@ -17,7 +17,7 @@ namespace Crypto_Currency_WebApi.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterModel model)
+        public async Task<IActionResult> Register([FromForm] RegisterModel model)
         {
             await accountsService.Register(model);
             return Ok();

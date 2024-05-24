@@ -4,9 +4,7 @@ using BusinessLogic.Services;
 using Crypto_Currency_WebApi.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
-using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
 namespace Crypto_Currency_WebApi.Controllers
 {
@@ -32,7 +30,7 @@ namespace Crypto_Currency_WebApi.Controllers
             return Ok(await currencyService.Get(id));
         }
         
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpPost]
         public IActionResult Create([FromForm] CreateCurrencyModel model)
         {
@@ -48,7 +46,7 @@ namespace Crypto_Currency_WebApi.Controllers
             return Ok();
         }
 
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {

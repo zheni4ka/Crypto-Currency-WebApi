@@ -24,6 +24,8 @@ namespace BusinessLogic.Profiles
             CreateMap<TransactionsDto, Transaction>();
             CreateMap<ChangeHistory, ChangeHistoryDto>();
             CreateMap<ChangeHistoryDto, ChangeHistory>();
+            CreateMap<RegisterModel, User>()
+                .ForMember(x => x.AvatarPicture, opt => opt.MapFrom(src => fileService.SaveCurrencyImage(src.AvatarPicture).Result));
         }
     }
 }

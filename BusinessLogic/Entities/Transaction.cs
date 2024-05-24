@@ -14,6 +14,6 @@ namespace BusinessLogic.Entities
         public int Sum { get; set; }
         public int CurrencyId { get; set; }
         public Currency? Currency { get; set; }
-        public DateTime DateTime { get; set; } = DateTime.Now;
+        public DateTime DateTime { get; set; }
     }
 }

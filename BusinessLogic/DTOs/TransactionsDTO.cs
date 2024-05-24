@@ -13,6 +13,6 @@ namespace BusinessLogic.DTOs
         public int UserId { get; set; }
         public int Sum { get; set; }
         public int CurrencyId { get; set; }
-        public DateTime DateTime { get; set; } = DateTime.Now;
+        public DateTime DateTime { get; set; }
     }
 }
