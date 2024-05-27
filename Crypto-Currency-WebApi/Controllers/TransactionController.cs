@@ -34,9 +34,9 @@ namespace Crypto_Currency_WebApi.Controllers
 
         //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
-        public IActionResult Create([FromForm] CreateTransactionModel model)
+        public async Task<IActionResult> Create([FromForm] CreateTransactionModel model)
         {
-            transactionService.Create(model);
+            await transactionService.Create(model);
             return Ok();
         }
 

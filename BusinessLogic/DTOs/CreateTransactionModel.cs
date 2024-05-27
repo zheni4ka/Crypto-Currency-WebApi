@@ -9,8 +9,8 @@ namespace BusinessLogic.DTOs
     public class CreateTransactionModel
     {
         public string UserId { get; set; }
-        public int Sum { get; set; }
+        public int Value { get; set; }
         public int CurrencyId { get; set; }
-        public DateTime DateTime { get; set; } = DateTime.Now;
+        public DateTime DateTime { get; set; }
     }
 }

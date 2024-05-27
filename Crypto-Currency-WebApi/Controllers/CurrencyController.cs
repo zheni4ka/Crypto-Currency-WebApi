@@ -30,7 +30,7 @@ namespace Crypto_Currency_WebApi.Controllers
             return Ok(await currencyService.Get(id));
         }
         
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpPost]
         public IActionResult Create([FromForm] CreateCurrencyModel model)
         {

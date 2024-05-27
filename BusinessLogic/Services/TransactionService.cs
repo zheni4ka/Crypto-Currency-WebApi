@@ -15,15 +15,24 @@ namespace BusinessLogic.Services
     {
         private readonly IMapper mapper;
         private readonly IRepository<Transaction> transactionR;
-        public TransactionService(IMapper mapper, IRepository<Transaction> transactionR)
+        private readonly IRepository<Currency> currencyR;
+        public TransactionService(IMapper mapper, IRepository<Currency> currencyR, IRepository<Transaction> transactionR)
         {
             this.mapper = mapper;
             this.transactionR = transactionR;
+            this.currencyR = currencyR;
         }
 
-        public void Create(CreateTransactionModel create)
+        public async Task Create(CreateTransactionModel create)
         {
-            transactionR.Insert(mapper.Map<Transaction>(create));
+            var currency = await currencyR.GetItemBySpec(new CurrencySpecs.ById(create.CurrencyId));
+            var transaction = mapper.Map<Transaction>(create);
+            transaction.Sum = (int)(currency.PriceForOneUnit * transaction.Value);
+            transactionR.Insert(transaction);
+         
+
+            currency.Value += create.Value;
+            currencyR.Update(currency);
             transactionR.Save();
         }
 

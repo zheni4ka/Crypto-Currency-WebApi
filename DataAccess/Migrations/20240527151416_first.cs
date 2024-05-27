@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace DataAccess.Migrations
 {
     /// <inheritdoc />
-    public partial class test : Migration
+    public partial class first : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -242,6 +244,15 @@ namespace DataAccess.Migrations
                         principalTable: "Currencies",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Currencies",
+                columns: new[] { "Id", "ImageUrl", "Name", "PriceForOneUnit", "Value" },
+                values: new object[,]
+                {
+                    { 1, "images/maxicoin.jpg", "MaxiCoin", 10m, 0 },
+                    { 2, "images/Tymocoin.jpg", "TymoCoin", 2000m, 0 }
                 });
 
             migrationBuilder.CreateIndex(

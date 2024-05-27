@@ -12,7 +12,7 @@ namespace BusinessLogic.Interfaces
         IEnumerable<TransactionsDto> GetAll();
         Task<IEnumerable<TransactionsDto>> Get(IEnumerable<int> id);
         Task<TransactionsDto?> Get(int id);
-        void Create(CreateTransactionModel create);
+        Task Create(CreateTransactionModel create);
         Task Delete(int id);
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(CryptoDbContext))]
-    [Migration("20240522154722_test")]
-    partial class test
+    [Migration("20240527171629_valueColumn")]
+    partial class valueColumn
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,6 +74,24 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Currencies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ImageUrl = "images/maxicoin.jpg",
+                            Name = "MaxiCoin",
+                            PriceForOneUnit = 10m,
+                            Value = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ImageUrl = "images/Tymocoin.jpg",
+                            Name = "TymoCoin",
+                            PriceForOneUnit = 2000m,
+                            Value = 0
+                        });
                 });
 
             modelBuilder.Entity("BusinessLogic.Entities.RefreshToken", b =>
@@ -122,6 +140,9 @@ namespace DataAccess.Migrations
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Value")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
