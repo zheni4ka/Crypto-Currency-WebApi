@@ -16,10 +16,12 @@ namespace BusinessLogic.Services
     {
         private readonly IMapper mapper;
         private readonly IRepository<Currency> currencyR;
-        public CurrencyService(IMapper mapper, IRepository<Currency> currencyR)
+        private readonly IRepository<ChangeHistory> changeHistoryR;
+        public CurrencyService(IMapper mapper, IRepository<Currency> currencyR, IRepository<ChangeHistory> changeHistoryR)
         {
             this.mapper = mapper;
             this.currencyR = currencyR;
+            this.changeHistoryR = changeHistoryR;
         }
 
         public void Create(CreateCurrencyModel create)
@@ -40,10 +42,27 @@ namespace BusinessLogic.Services
             currencyR.Save();
         }
 
-        public void Edit(CurrencyDto currency)
+        public async Task Edit(CurrencyDto currency)
         {
-            currencyR.Update(mapper.Map<Currency>(currency));
-            currencyR.Save();
+            var oldCurrency = await currencyR.GetItemBySpec(new CurrencySpecs.ById(currency.Id));
+            //if(oldCurrency.PriceForOneUnit != currency.PriceForOneUnit)
+            //{
+            //    CreateChangeHistoryModel model = new CreateChangeHistoryModel() 
+            //    {
+            //        ChangeTime = DateTime.Now,
+            //        CurrencyId = currency.Id,
+            //        PriceChange = currency.PriceForOneUnit
+            //    };
+            //    changeHistoryR.Insert(mapper.Map<ChangeHistory>(model));
+            //    changeHistoryR.Save();
+            //    currencyR.Update(mapper.Map<Currency>(currency));
+            //    currencyR.Save();
+            //}
+            //else
+            //{ 
+                currencyR.Update(mapper.Map<Currency>(currency));
+                currencyR.Save();
+            //}
         }
 
         public async Task<IEnumerable<CurrencyDto>> Get(IEnumerable<int> ids)

@@ -13,7 +13,7 @@ namespace BusinessLogic.Interfaces
         IEnumerable<CurrencyDto> GetAll();
         Task<CurrencyDto?> Get(int id);
         void Create(CreateCurrencyModel create);
-        void Edit(CurrencyDto currencyDTO);
+        Task Edit(CurrencyDto currencyDTO);
         Task Delete(int id);
     }
 }

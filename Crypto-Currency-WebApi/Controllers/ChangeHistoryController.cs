@@ -16,7 +16,7 @@ namespace Crypto_Currency_WebApi.Controllers
             this.changeHistoryService = changeHistoryService;
         }
 
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("all")]
         public IActionResult All()
         {
