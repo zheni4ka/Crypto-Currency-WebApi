@@ -40,9 +40,9 @@ namespace Crypto_Currency_WebApi.Controllers
         
         //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpPut]
-        public IActionResult Edit([FromBody] CurrencyDto model)
+        public async Task<IActionResult> Edit([FromBody] CurrencyDto model)
         {
-            currencyService.Edit(model);
+            await currencyService.Edit(model);
             return Ok();
         }
 

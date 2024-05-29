@@ -44,25 +44,25 @@ namespace BusinessLogic.Services
 
         public async Task Edit(CurrencyDto currency)
         {
-            var oldCurrency = await currencyR.GetItemBySpec(new CurrencySpecs.ById(currency.Id));
-            //if(oldCurrency.PriceForOneUnit != currency.PriceForOneUnit)
-            //{
-            //    CreateChangeHistoryModel model = new CreateChangeHistoryModel() 
-            //    {
-            //        ChangeTime = DateTime.Now,
-            //        CurrencyId = currency.Id,
-            //        PriceChange = currency.PriceForOneUnit
-            //    };
-            //    changeHistoryR.Insert(mapper.Map<ChangeHistory>(model));
-            //    changeHistoryR.Save();
-            //    currencyR.Update(mapper.Map<Currency>(currency));
-            //    currencyR.Save();
-            //}
-            //else
-            //{ 
+            var oldCurrency = await currencyR.GetItemBySpec(new CurrencySpecs.ByIdNoTracking(currency.Id));
+            if(oldCurrency.PriceForOneUnit != currency.PriceForOneUnit)
+            {
+                ChangeHistory model = new() 
+                {
+                    ChangeTime = DateTime.Now,
+                    CurrencyId = currency.Id,
+                    PriceChange = currency.PriceForOneUnit,
+                };
+                changeHistoryR.Insert(model);
+                changeHistoryR.Save();
                 currencyR.Update(mapper.Map<Currency>(currency));
                 currencyR.Save();
-            //}
+            }
+            else
+            { 
+                currencyR.Update(mapper.Map<Currency>(currency));
+                currencyR.Save();
+            }
         }
 
         public async Task<IEnumerable<CurrencyDto>> Get(IEnumerable<int> ids)

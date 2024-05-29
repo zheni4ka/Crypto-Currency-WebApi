@@ -36,6 +36,7 @@ namespace Crypto_Currency_WebApi.Helpers
             const string USERNAME = "myadmin@myadmin.com";
             const string PASSWORD = "Admin1@";
             const string IMAGEURL = @"~wwwroot/images/admin.jpg";
+            DateTime BIRTHDATE = new(2000, 03,04);
 
             var existingUser = await userManager.FindByNameAsync(USERNAME);
 
@@ -45,7 +46,8 @@ namespace Crypto_Currency_WebApi.Helpers
                 {
                     UserName = USERNAME,
                     Email = USERNAME,
-                    AvatarPicture = IMAGEURL
+                    AvatarPicture = IMAGEURL,
+                    Birthdate = BIRTHDATE
                 };
 
                 var result = await userManager.CreateAsync(user, PASSWORD);

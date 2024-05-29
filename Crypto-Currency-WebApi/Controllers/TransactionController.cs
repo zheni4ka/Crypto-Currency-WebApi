@@ -18,21 +18,21 @@ namespace Crypto_Currency_WebApi.Controllers
             this.transactionService = transactionService;
         }
         
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("all")]
         public IActionResult All()
         {
             return Ok(transactionService.GetAll());
         }
 
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("{id:int}")]
         public async Task<IActionResult> Get([FromRoute] int id)
         {
             return Ok(await transactionService.Get(id));
         }
 
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] CreateTransactionModel model)
         {
@@ -40,7 +40,7 @@ namespace Crypto_Currency_WebApi.Controllers
             return Ok();
         }
 
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Roles.ADMIN)]
         [HttpDelete("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {

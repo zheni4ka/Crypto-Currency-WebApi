@@ -1,8 +1,10 @@
 ﻿using BusinessLogic.DTOs;
+using BusinessLogic.Entities;
 using BusinessLogic.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Cryptography;
 
 namespace Crypto_Currency_WebApi.Controllers
 {
@@ -16,7 +18,7 @@ namespace Crypto_Currency_WebApi.Controllers
             this.changeHistoryService = changeHistoryService;
         }
 
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpGet("all")]
         public IActionResult All()
         {

@@ -24,5 +24,12 @@ namespace BusinessLogic.Specifications
                 Query.Where(x => ids.Contains(x.Id));
             }
         }
+        internal class ByIdNoTracking : Specification<Currency>
+        {
+            public ByIdNoTracking(int Id) 
+            {
+                Query.AsNoTracking().Where(x => x.Id == Id);
+            }
+        }
     }
 }

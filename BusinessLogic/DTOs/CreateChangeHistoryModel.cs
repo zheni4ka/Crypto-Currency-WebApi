@@ -9,7 +9,7 @@ namespace BusinessLogic.DTOs
     public class CreateChangeHistoryModel
     {
         public decimal PriceChange { get; set; }
-        public DateTime ChangeTime { get; set; } = DateTime.Now;
+        public DateTime ChangeTime { get; set; }
         public int CurrencyId { get; set; }
     }
 }

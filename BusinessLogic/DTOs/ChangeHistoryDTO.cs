@@ -10,7 +10,7 @@ namespace BusinessLogic.DTOs
     {
         public int Id { get; set; }
         public decimal PriceChange { get; set; }
-        public DateTime ChangeTime { get; set; } = DateTime.Now;
+        public DateTime ChangeTime { get; set; }
         public int CurrencyId { get; set; }
     }
 }

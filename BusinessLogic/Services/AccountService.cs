@@ -40,6 +40,9 @@ namespace BusinessLogic.Services
             if (user != null)
                 throw new HttpException("Email is already exists.", HttpStatusCode.BadRequest);
 
+            if(DateTime.Now.Year - model.Birthdate.Year <= 18)
+                throw new HttpException("You are too young", HttpStatusCode.BadRequest);
+
             var newUser = mapper.Map<User>(model);
             var result = await userManager.CreateAsync(newUser, model.Password);
 
