@@ -11,7 +11,7 @@ namespace Crypto_Currency_WebApi
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            var connStr = builder.Configuration.GetConnectionString("LocalDb")!;
+            var connStr = builder.Configuration.GetConnectionString("SomeeDb")!;
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

@@ -20,7 +20,7 @@ namespace DataAccess.Data
             builder.AddJsonFile("appsettings.json");
             IConfigurationRoot config = builder.Build();
 
-            string? connectionString = config.GetConnectionString("LocalDb");
+            string? connectionString = config.GetConnectionString("SomeeDb");
             optionsBuilder.UseSqlServer(connectionString);
             return new CryptoDbContext(optionsBuilder.Options);
         }
